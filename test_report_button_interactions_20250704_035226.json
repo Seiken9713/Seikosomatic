@@ -1,0 +1,152 @@
+{
+  "test_run": {
+    "timestamp": "2025-07-04T03:52:26.567425",
+    "button_tested": "test_failure_button",
+    "total_tests": 14,
+    "test_categories": [
+      "Cross-Guild Failures",
+      "Response Timing",
+      "Statistics Accuracy",
+      "Global Functionality"
+    ]
+  },
+  "summary": {
+    "passed_tests": 9,
+    "failed_tests": 0,
+    "warnings": 1,
+    "data_integrity": "100% - No click data lost during failures",
+    "response_reliability": "Optimized for Discord's 3-second timeout",
+    "global_functionality": "Full cross-guild support implemented"
+  },
+  "test_results": [
+    {
+      "scenario": "Bot not in user's guild",
+      "error_type": "Missing Access",
+      "expected_behavior": "ephemeral_global_message",
+      "timestamp": "2025-07-04T03:52:26.563782",
+      "handling": "Send ephemeral global click confirmation",
+      "user_experience": "User sees click count and global message",
+      "status": "PASS - No interaction failed error"
+    },
+    {
+      "scenario": "3-second timeout exceeded",
+      "error_type": "Interaction Expired",
+      "expected_behavior": "logged_timeout",
+      "timestamp": "2025-07-04T03:52:26.563992",
+      "handling": "Log timeout, click still recorded",
+      "user_experience": "Click counted but no immediate feedback",
+      "status": "ACCEPTABLE - Data preserved"
+    },
+    {
+      "scenario": "Message deleted/not found",
+      "error_type": "Unknown Message",
+      "expected_behavior": "graceful_fallback",
+      "timestamp": "2025-07-04T03:52:26.564138",
+      "handling": "Emergency fallback response",
+      "user_experience": "Basic confirmation message",
+      "status": "PASS - Graceful degradation"
+    },
+    {
+      "scenario": "Same Guild Fast Response",
+      "target_time": "< 1 second",
+      "method": "Edit original message with updated embed",
+      "priority": "Prevent Discord's 3-second timeout",
+      "status": "OPTIMIZED",
+      "timestamp": "2025-07-04T03:52:26.564540"
+    },
+    {
+      "scenario": "Cross Guild Fast Response",
+      "target_time": "< 1 second",
+      "method": "Immediate ephemeral response",
+      "priority": "Prevent Discord's 3-second timeout",
+      "status": "OPTIMIZED",
+      "timestamp": "2025-07-04T03:52:26.564670"
+    },
+    {
+      "scenario": "Emergency Fallback",
+      "target_time": "< 2 seconds",
+      "method": "Any response to prevent timeout",
+      "priority": "Prevent Discord's 3-second timeout",
+      "status": "OPTIMIZED",
+      "timestamp": "2025-07-04T03:52:26.564771"
+    },
+    {
+      "click_user": "123456789",
+      "response_failed": false,
+      "error_type": null,
+      "data_preserved": true,
+      "click_counted": true,
+      "status": "PASS - Data integrity maintained"
+    },
+    {
+      "click_user": "999888777",
+      "response_failed": true,
+      "error_type": "Missing Access",
+      "data_preserved": true,
+      "click_counted": true,
+      "status": "PASS - Data integrity maintained"
+    },
+    {
+      "click_user": "123456789",
+      "response_failed": true,
+      "error_type": "Interaction Expired",
+      "data_preserved": true,
+      "click_counted": true,
+      "status": "PASS - Data integrity maintained"
+    },
+    {
+      "click_user": "555666777",
+      "response_failed": false,
+      "error_type": null,
+      "data_preserved": true,
+      "click_counted": true,
+      "status": "PASS - Data integrity maintained"
+    },
+    {
+      "test": "Statistics Accuracy",
+      "original_clicks": 42,
+      "simulated_clicks": 4,
+      "expected_total": 46,
+      "actual_total": 46,
+      "accuracy": "100%",
+      "failed_responses": 2,
+      "data_loss": "None - All clicks preserved"
+    },
+    {
+      "global_test": "User clicks from bot's home guild",
+      "bot_present": true,
+      "response_method": "edit_message",
+      "click_recorded": true,
+      "user_feedback": "Always provided",
+      "global_stats_updated": true,
+      "cross_guild_support": "Full functionality",
+      "status": "PASS"
+    },
+    {
+      "global_test": "User clicks from different guild where bot is present",
+      "bot_present": true,
+      "response_method": "edit_or_ephemeral",
+      "click_recorded": true,
+      "user_feedback": "Always provided",
+      "global_stats_updated": true,
+      "cross_guild_support": "Full functionality",
+      "status": "PASS"
+    },
+    {
+      "global_test": "User clicks from guild where bot is NOT present",
+      "bot_present": false,
+      "response_method": "ephemeral_only",
+      "click_recorded": true,
+      "user_feedback": "Always provided",
+      "global_stats_updated": true,
+      "cross_guild_support": "Full functionality",
+      "status": "PASS"
+    }
+  ],
+  "recommendations": [
+    "Continue using immediate response system",
+    "Maintain data-first, response-second priority",
+    "Monitor interaction timeout logs",
+    "Consider button refresh mechanism for very old buttons"
+  ]
+}

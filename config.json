@@ -1,0 +1,42 @@
+{
+    "prefix": "!",
+    "log_channel": 1389862451540918282,
+    "mute_role": "Muted",
+    "max_warnings": 3,
+    "auto_mod": {
+        "enabled": false,
+        "spam_threshold": 5,
+        "spam_interval": 10
+    },
+    "moderation": {
+        "require_reason": true,
+        "dm_on_action": true,
+        "log_actions": true
+    },
+    "permissions": {
+        "moderator_roles": [
+            "Moderator",
+            "Admin"
+        ],
+        "admin_roles": [
+            "Admin",
+            "Owner"
+        ]
+    },
+    "client_id": "1389862450924789810",
+    "redirect_uri": "https://1a2a5c41-19f8-4bf9-87a7-267b20be15b0-00-u0n0u2m5um1p.worf.replit.dev/oauth/callback",
+    "user_app": {
+        "enabled": true,
+        "features": {
+            "personal_reminders": true,
+            "cross_server_stats": true,
+            "data_export": true,
+            "privacy_controls": true
+        }
+    },
+    "guild_configs": {
+        "938406504657199104": {
+            "log_channel": 1372407188936724512
+        }
+    }
+}
